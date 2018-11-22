@@ -1,23 +1,30 @@
 {
-  "packageManager": "npm",
-  "useTaobaoRegistry": true,
-  "presets": {
-    "vuePresets": {
-      "useConfigFiles": true,
-      "plugins": {
-        "@vue/cli-plugin-babel": {},
-        "@vue/cli-plugin-pwa": {},
-        "@vue/cli-plugin-eslint": {
-          "config": "standard",
-          "lintOn": ["save"]
-        },
-        "@vue/cli-plugin-unit-jest": {},
-        "@vue/cli-plugin-e2e-nightwatch": {}
-      },
-      "router": true,
-      "routerHistoryMode": false,
-      "vuex": true,
-      "cssPreprocessor": "sass"
-    }
+  "useConfigFiles": true,
+  "router": true,
+  "routerHistoryMode": false,
+  "vuex": true,
+  "cssPreprocessor": "sass",
+  "plugins": {
+    "@vue/cli-plugin-eslint": {
+      "config": "prettier",
+      "lintOn": ["save", "commit"]
+    },
+    "@vue/cli-plugin-babel": {
+      "presets": [
+        [
+          "@vue/app",
+          { "polyfills": [ "es6.promise", "es6.symbol" ] }
+        ]
+      ]
+    },
+    "babel-plugin-import": {}
+  },
+  "configs": {
+    "vue": {
+      "baseUrl": "./",
+      "lintOnSave": false,
+      "productionSourceMap": false
+    },
+    "babel": {}
   }
 }
